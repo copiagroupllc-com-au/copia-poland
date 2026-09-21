@@ -337,7 +337,7 @@ export default function ApplicationForm({ role, accent }) {
           Your application for <span className="text-white font-semibold">{role}</span> has been sent. We'll be in touch within 3–5 business days.
         </p>
         <div className="flex flex-col sm:flex-row gap-3 justify-center">
-          <a href="https://calendly.com/24-7-hire" target="_blank" rel="noopener noreferrer"
+          <a href="https://calendly.com/copia-hiring" target="_blank" rel="noopener noreferrer"
             className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full font-bold text-sm text-white" style={{ background: accent }}>
             Book an Interview
           </a>

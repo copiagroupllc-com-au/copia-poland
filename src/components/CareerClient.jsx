@@ -2,7 +2,7 @@ import { useState, useMemo } from "react";
 import { Link } from "react-router-dom";
 
 const DEPARTMENTS = ["All","Blockchain","Engineering","AI & Data","Mobile","Design","Product","Security","DevOps","QA","Management","Support"];
-const CALENDLY_URL = "https://calendly.com/24-7-hire";
+const CALENDLY_URL = "https://calendly.com/copia-hiring";
 
 export default function CareerClient({ openings }) {
   const [activeDept, setActiveDept] = useState("All");

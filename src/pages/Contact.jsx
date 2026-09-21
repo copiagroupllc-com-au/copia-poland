@@ -1,7 +1,7 @@
 import ContactForm from "../components/ContactForm";
 import { useLanguage } from "../context/LanguageContext";
 
-const CALENDLY_URL = "https://calendly.com/24-7-hire";
+const CALENDLY_URL = "https://calendly.com/copia-hiring";
 
 export default function Contact() {
   const { t } = useLanguage();
