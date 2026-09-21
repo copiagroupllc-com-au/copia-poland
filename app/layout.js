@@ -13,7 +13,7 @@ export const metadata = {
     template: "%s | Copia Group Australia",
   },
   description:
-    "Copia Group is an Australian-based innovation hub focused on investment, fintech, payments, Web3, AI, real estate, and gaming — pioneering the future of digital finance.",
+    "Copia Group is a Poland-based innovation hub driving investment and innovation across fintech, payments, Web3, AI, real estate, and gaming — building the next generation of digital finance and technology.",
   keywords: ["Copia Group","investment","fintech","payments","Web3","AI","real estate","gaming","Australia","blockchain"],
   authors: [{ name: "Copia Group LLC", url: "https://copiagroupllc.com" }],
   icons: {
@@ -27,13 +27,13 @@ export const metadata = {
     url:         "https://copiagroupllc.com.au",
     siteName:    "Copia Group Australia",
     title:       "Copia Group | Investment, Web3 & Real Estate — Australia",
-    description: "Copia Group is an Australian-based innovation hub focused on investment, fintech, payments, Web3, AI, real estate, and gaming.",
+    description: "Copia Group is a Poland-based innovation hub driving investment and innovation across fintech, payments, Web3, AI, real estate, and gaming — building the next generation of digital finance and technology.",
     images: [{ url: "/copia-logo.png", width: 512, height: 512, alt: "Copia Group" }],
   },
   twitter: {
     card:        "summary_large_image",
     title:       "Copia Group | Investment, Web3 & Real Estate — Australia",
-    description: "Copia Group is an Australian-based innovation hub focused on investment, fintech, payments, Web3, AI, real estate, and gaming.",
+    description: "Copia Group is a Poland-based innovation hub driving investment and innovation across fintech, payments, Web3, AI, real estate, and gaming — building the next generation of digital finance and technology.",
     images:      ["/copia-logo.png"],
   },
   robots: { index: true, follow: true },
