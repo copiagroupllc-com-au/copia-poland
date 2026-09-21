@@ -1,0 +1,53 @@
+export const posts = [
+  {
+    slug: "tokenised-real-estate-australia",
+    title: "Tokenised Real Estate: How Blockchain Is Reshaping Australian Property Markets",
+    excerpt: "Fractional ownership through blockchain tokenisation is opening Australian property investment to a whole new class of investors — and Copia Group is at the forefront.",
+    category: "Real Estate", date: "2026-07-10", readTime: "6 min read",
+    author: "James Thornton", authorRole: "Head of Real Estate", authorInitials: "JT", authorColor: "#10B981",
+    content: `## The Problem with Traditional Property Investment\n\nFor decades, Australian real estate has been dominated by those who could afford a $500,000+ entry point. Negative gearing and capital gains concessions have further tilted the playing field toward wealthy investors, leaving millions of Australians priced out of the asset class that has historically generated the most wealth.\n\n## Enter Blockchain Tokenisation\n\nBy representing fractional ownership of a property as a blockchain token, we can reduce the minimum investment threshold from hundreds of thousands of dollars to as little as $100. Each token represents a legal share of the underlying asset, with rights to proportional rental yield and capital appreciation.\n\nThis is not a theoretical concept. Copia Group's real estate platform enables:\n\n- **Fractional investment** from AU$100\n- **Automated yield distribution** via smart contracts\n- **Secondary market trading** for liquidity\n- **On-chain title management** for full transparency\n\n## Regulatory Landscape in Australia\n\nAustralia's ASIC has been progressive in its approach to digital assets. Tokenised real estate structures can operate under existing managed investment scheme frameworks, provided proper disclosures and licensing are maintained — exactly what Copia Group has built into our platform architecture from day one.\n\n## What's Next\n\nOur first tokenised development project launches in Q4 2026. Early investors will gain access to a premium Sydney development at a fraction of the traditional entry cost.\n\n[Contact us](/contact) to join the waitlist.`,
+  },
+  {
+    slug: "web3-gaming-fintech-convergence",
+    title: "Why Web3 Gaming Is the Next Fintech Frontier",
+    excerpt: "In-game economies have grown to rival small national GDPs. The convergence of DeFi mechanics and high-quality gaming is creating an entirely new asset class.",
+    category: "Web3 Gaming", date: "2026-06-28", readTime: "5 min read",
+    author: "Lucas Andrade", authorRole: "Head of Web3 Gaming", authorInitials: "LA", authorColor: "#EF4444",
+    content: `## The $200B In-Game Economy Problem\n\nEvery year, players spend over $200 billion on in-game items, currency, and assets — yet own none of it. When a game shuts down, those assets disappear. When a publisher changes the rules, players have no recourse.\n\n## Blockchain Changes the Equation\n\nWeb3 gaming flips this model. By placing in-game assets on a public blockchain:\n\n- **Players truly own their assets** — provably, verifiably, permanently\n- **Assets can be traded** on open secondary markets\n- **Cross-game portability** becomes technically possible\n- **Play-to-earn mechanics** allow players to generate real economic value\n\n## The DeFi Layer\n\nWhat makes our platform unique is the integration of DeFi mechanics directly into the game economy. Players can:\n\n1. Stake in-game tokens to earn yield\n2. Provide liquidity to game item markets\n3. Participate in guild treasuries and DAO governance\n4. Bridge assets to external DeFi protocols`,
+  },
+  {
+    slug: "stripe-for-web3-payments",
+    title: "Building Stripe for Web3: What Modern Payment Infrastructure Looks Like",
+    excerpt: "The world needs payments infrastructure that speaks both fiat and crypto fluently. Here's how Copia Group is approaching this hard engineering problem.",
+    category: "Fintech & Payments", date: "2026-06-15", readTime: "7 min read",
+    author: "Priya Sharma", authorRole: "Head of Fintech & Payments", authorInitials: "PS", authorColor: "#8B5CF6",
+    content: `## The Gap in Today's Payments Stack\n\nStripe is extraordinary — but it was designed for the fiat internet. When your customers want to pay with USDC, receive royalties in ETH, or settle cross-border invoices via stablecoin rails, the existing infrastructure falls short.\n\n## What "Stripe for Web3" Actually Means\n\nIt doesn't mean replacing Stripe. It means building the equivalent layer of developer-friendly, reliable, compliant payment infrastructure for the Web3 economy.\n\n### 1. Unified Payment APIs\nA single API that handles fiat, crypto, and stablecoin payments with consistent error handling, webhooks, and developer experience.\n\n### 2. Compliance at the Protocol Level\nKYC/AML checks shouldn't be bolted on — they should be native to the payment flow.\n\n### 3. Instant Settlement\nUsing stablecoin rails (USDC, USDT, AUDC), merchants can receive settlement in seconds rather than T+2 business days.\n\n### 4. Cross-Border Without the Friction\nA payment from Sydney to Seoul shouldn't require SWIFT. With our infrastructure, it's a single API call.`,
+  },
+  {
+    slug: "ai-in-investment-management",
+    title: "How AI Is Transforming Investment Management in 2026",
+    excerpt: "Machine learning models are now outperforming traditional quant strategies in key market conditions. What does this mean for the future of asset management?",
+    category: "Investment & AI", date: "2026-06-01", readTime: "8 min read",
+    author: "David Nguyen", authorRole: "Head of AI & Data", authorInitials: "DN", authorColor: "#06B6D4",
+    content: `## The Alpha Question\n\nFor decades, generating alpha — returns above a benchmark — required either exceptional human insight or access to proprietary data. Both remain advantages, but a third source of alpha has emerged: machine learning applied to alternative data.\n\n## What Modern AI Investing Looks Like\n\nAt Copia Group, our AI investment layer ingests and processes:\n\n- **On-chain data**: wallet flows, protocol TVL, token velocity\n- **Sentiment signals**: social media, news, forum analysis\n- **Macro indicators**: correlating Web3 market cycles with traditional macro\n- **On-chain governance**: voting patterns as leading indicators of protocol health\n\n## The Human-AI Partnership\n\nWe don't believe in fully autonomous AI trading. The most robust approach combines:\n\n1. **AI for signal generation** — processing data at scale that no human could\n2. **Human judgment for strategy** — deciding which signals to act on and when\n3. **Rules-based risk management** — hard constraints that AI cannot override`,
+  },
+  {
+    slug: "copia-group-australia-launch",
+    title: "Introducing Copia Group Australia: Our Mission, Projects, and Vision",
+    excerpt: "We've officially established our Australian office. Here's everything you need to know about what we're building and why Australia is the perfect launchpad.",
+    category: "Company News", date: "2026-05-20", readTime: "4 min read",
+    author: "Alexander Reid", authorRole: "Chief Executive Officer", authorInitials: "AR", authorColor: "#6366F1",
+    content: `## A New Chapter for Copia Group\n\nToday marks a significant milestone: the official establishment of Copia Group's Australian operations. For those familiar with our US parent company, [Copia Group LLC](https://copiagroupllc.com), you know the scale of our ambition.\n\n## Why Australia?\n\n**1. Progressive regulation.** ASIC and the Australian Treasury have demonstrated a measured, innovation-friendly approach to digital assets and fintech.\n\n**2. Talent.** Australia has world-class engineering, finance, and legal talent — and far less competition for it than Silicon Valley or London.\n\n**3. Strategic position.** Australia is a natural bridge between the sophisticated financial markets of the West and the rapid digital adoption of Asia-Pacific.\n\n## What We're Building\n\n### Project 1: Tokenised Real Estate Platform\nAustralian property, made accessible to everyone. Our platform enables fractional ownership from AU$100.\n\n### Project 2: Web3 Gaming Platform\nA GameFi platform with genuine production quality — real gameplay, real ownership, real economics.`,
+  },
+  {
+    slug: "defi-vs-traditional-banking",
+    title: "DeFi vs Traditional Banking: Not a Battle, But a Bridge",
+    excerpt: "The narrative that decentralised finance will replace banks misses the point. The real opportunity is in the intersection — and that's where Copia Group operates.",
+    category: "Web3 & Finance", date: "2026-05-08", readTime: "6 min read",
+    author: "Mei Lin Chen", authorRole: "Chief Technology Officer", authorInitials: "MC", authorColor: "#3B82F6",
+    content: `## The False Binary\n\nThe crypto community loves a clean narrative: DeFi will kill banks. Reality, as always, is more nuanced.\n\n## What DeFi Does Better\n\n- **Permissionless access**: Anyone with an internet connection and a wallet can participate\n- **Composability**: DeFi protocols can be stacked and combined like financial Lego\n- **Transparency**: Every transaction, every position, is auditable on-chain\n- **Speed**: Settlement in seconds, not days\n\n## What Banks Still Do Better\n\n- **Consumer protection**: Deposit guarantees, fraud resolution, legal recourse\n- **Credit underwriting**: Using non-financial data to make lending decisions\n- **Regulatory compliance**: Established frameworks for AML, KYC, sanctions\n\n## The Bridge Opportunity\n\nThe most interesting companies right now are those building bridges — using blockchain infrastructure to enhance, rather than replace, traditional financial services. This is where Copia Group operates.`,
+  },
+];
+
+export function getPostBySlug(slug) { return posts.find((p) => p.slug === slug) || null; }
+export function getAllPosts() { return [...posts].sort((a, b) => new Date(b.date) - new Date(a.date)); }
