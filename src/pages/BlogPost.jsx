@@ -1,13 +1,24 @@
 import { useParams, Link, Navigate } from "react-router-dom";
 import { getPostBySlug, getAllPosts } from "../lib/blogData";
+import ServicePreview from "../components/ServicePreview";
 
 const categoryColors = {
-  "Real Estate": "#F59E0B", "Web3 Gaming": "#EF4444",
-  "Fintech & Payments": "#8B5CF6", "Investment & AI": "#06B6D4",
-  "Company News": "#6366F1", "Web3 & Finance": "#3B82F6",
+  "Real Estate":        "#F59E0B",
+  "Web3 Gaming":        "#EF4444",
+  "Fintech & Payments": "#8B5CF6",
+  "Investment & AI":    "#06B6D4",
+  "Company News":       "#6366F1",
+  "Web3 & Finance":     "#3B82F6",
 };
 
-const catIcon = (cat) => ({ "Real Estate":"🏢","Web3 Gaming":"🎮","Fintech & Payments":"💳","Investment & AI":"🤖","Company News":"🚀" }[cat] || "⛓️");
+const categoryPreviewUrls = {
+  "Real Estate":        "https://mey.network",
+  "Web3 Gaming":        "https://playable.com",
+  "Fintech & Payments": "https://www.revolut.com",
+  "Investment & AI":    "https://spacemarkets.com",
+  "Company News":       "https://saharaai.com",
+  "Web3 & Finance":     "https://monad.xyz",
+};
 
 function formatDate(d) {
   return new Date(d).toLocaleDateString("en-AU", { day: "numeric", month: "long", year: "numeric" });
@@ -108,7 +119,14 @@ export default function BlogPost() {
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
               {related.map((p) => (
                 <Link key={p.slug} to={`/blog/${p.slug}`} className="group flex flex-col rounded-2xl border border-white/8 bg-[#16161F] overflow-hidden hover:border-[#6366F1]/30 transition-colors">
-                  <div className="h-32 flex items-center justify-center text-4xl" style={{ background: `linear-gradient(135deg, ${categoryColors[p.category] || "#6366F1"}15 0%, #111118 100%)` }}>{catIcon(p.category)}</div>
+                  <div className="overflow-hidden">
+                    <ServicePreview
+                      siteUrl={categoryPreviewUrls[p.category] || "https://midas.app"}
+                      accent={categoryColors[p.category] || "#6366F1"}
+                      title={p.title}
+                      className="rounded-none"
+                    />
+                  </div>
                   <div className="p-5">
                     <span className="text-xs px-2 py-0.5 rounded-full font-semibold" style={{ background: `${categoryColors[p.category] || "#6366F1"}20`, color: categoryColors[p.category] || "#6366F1" }}>{p.category}</span>
                     <h3 className="text-white font-bold text-sm mt-3 mb-1 group-hover:text-[#6366F1] transition-colors leading-snug font-display">{p.title}</h3>

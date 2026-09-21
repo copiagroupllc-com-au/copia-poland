@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import ServicePreview from "../components/ServicePreview";
 
 const categories = [
   { label: "All", id: "all" }, { label: "Investment", id: "investment" },
@@ -7,14 +8,14 @@ const categories = [
 ];
 
 const insights = [
-  { category: "Investment", accent: "#6366F1", type: "Market Report", title: "Asia-Pacific Digital Asset Markets: Q3 2026 Outlook", summary: "A comprehensive review of tokenised asset performance across APAC, covering regulatory shifts in Australia, Singapore, and Japan — and what they mean for institutional capital allocation.", readTime: "12 min read", date: "July 2026", author: "Alexander Reid", authorInitials: "AR", authorColor: "#6366F1", tags: ["Tokenised Assets","APAC","Institutional","Regulatory"], icon: "💹" },
-  { category: "Fintech & Payments", accent: "#3B82F6", type: "Technical Deep-Dive", title: "Stablecoin Settlement Rails: Engineering a Stripe Alternative for Web3", summary: "An engineering-level breakdown of how USDC/USDT settlement rails, on-chain KYC attestations, and webhook infrastructure can replicate Stripe's developer experience for DeFi-native applications.", readTime: "15 min read", date: "June 2026", author: "Priya Sharma", authorInitials: "PS", authorColor: "#8B5CF6", tags: ["Stablecoins","Payments API","DeFi","Engineering"], icon: "💳" },
-  { category: "Web3 & Blockchain", accent: "#8B5CF6", type: "Research Note", title: "Layer 2 Adoption Curves: What Ethereum Scaling Means for DApp Builders", summary: "With Optimism, Arbitrum, and Base commanding over $20B in TVL, we analyse how L2 cost structures are reshaping smart contract deployment strategies for production applications.", readTime: "10 min read", date: "June 2026", author: "Mei Lin Chen", authorInitials: "MC", authorColor: "#3B82F6", tags: ["Layer 2","Ethereum","TVL","Smart Contracts"], icon: "⛓️" },
-  { category: "AI & Data", accent: "#10B981", type: "Analysis", title: "LLMs as Financial Co-Pilots: Accuracy, Hallucination Risk, and Compliance Guardrails", summary: "Financial institutions are deploying LLMs at scale, but hallucination rates in high-stakes contexts demand purpose-built guardrails. We evaluate RAG pipelines, fine-tuning approaches, and compliance frameworks.", readTime: "18 min read", date: "May 2026", author: "David Nguyen", authorInitials: "DN", authorColor: "#06B6D4", tags: ["LLMs","RAG","Compliance","FinanceAI"], icon: "🤖" },
-  { category: "Real Estate", accent: "#F59E0B", type: "Property Intelligence", title: "Fractional Ownership Regulation in Australia: ASIC's Evolving Framework", summary: "ASIC has signalled a managed investment scheme pathway for tokenised real estate. We map out the compliance requirements, minimum capital thresholds, and disclosure obligations for platform operators.", readTime: "9 min read", date: "May 2026", author: "Emma Fischer", authorInitials: "EF", authorColor: "#EC4899", tags: ["ASIC","Regulation","Tokenisation","MIS"], icon: "🏢" },
-  { category: "Gaming", accent: "#EF4444", type: "Industry Report", title: "Web3 Gaming in 2026: The Play-to-Own Inflection Point", summary: "After the play-to-earn crash of 2022, a new cohort of Web3 games with genuine gameplay loops is reaching mainstream audiences. We examine retention mechanics, guild economics, and NFT market liquidity.", readTime: "14 min read", date: "April 2026", author: "Lucas Andrade", authorInitials: "LA", authorColor: "#EF4444", tags: ["GameFi","NFT","Retention","Guild Economics"], icon: "🎮" },
-  { category: "Investment", accent: "#6366F1", type: "Macro View", title: "Interest Rates, Digital Assets, and the Correlation Debate", summary: "With the RBA cutting rates for the third time in 2026, we revisit the risk-on / risk-off correlation between digital assets and traditional macro indicators — and what it means for portfolio construction.", readTime: "11 min read", date: "April 2026", author: "Alexander Reid", authorInitials: "AR", authorColor: "#6366F1", tags: ["Macro","RBA","Portfolio","Correlation"], icon: "💹" },
-  { category: "Web3 & Blockchain", accent: "#8B5CF6", type: "Protocol Analysis", title: "DAO Treasury Management: Lessons from 50 Governance Experiments", summary: "We surveyed 50 DAOs managing treasuries above $10M to identify best practices in diversification, spending governance, and off-chain / on-chain co-ordination.", readTime: "16 min read", date: "March 2026", author: "Mei Lin Chen", authorInitials: "MC", authorColor: "#3B82F6", tags: ["DAO","Governance","Treasury","DeFi"], icon: "⛓️" },
+  { category: "Investment",        accent: "#6366F1", previewUrl: "https://midas.app",       type: "Market Report",       title: "Asia-Pacific Digital Asset Markets: Q3 2026 Outlook",                          summary: "A comprehensive review of tokenised asset performance across APAC, covering regulatory shifts in Australia, Singapore, and Japan — and what they mean for institutional capital allocation.", readTime: "12 min read", date: "July 2026",  author: "Alexander Reid",  authorInitials: "AR", authorColor: "#6366F1", tags: ["Tokenised Assets","APAC","Institutional","Regulatory"] },
+  { category: "Fintech & Payments",accent: "#3B82F6", previewUrl: "https://stripe.com",    type: "Technical Deep-Dive", title: "Stablecoin Settlement Rails: Engineering a Stripe Alternative for Web3",           summary: "An engineering-level breakdown of how USDC/USDT settlement rails, on-chain KYC attestations, and webhook infrastructure can replicate Stripe's developer experience for DeFi-native applications.", readTime: "15 min read", date: "June 2026",  author: "Priya Sharma",    authorInitials: "PS", authorColor: "#8B5CF6", tags: ["Stablecoins","Payments API","DeFi","Engineering"] },
+  { category: "Web3 & Blockchain", accent: "#8B5CF6", previewUrl: "https://0g.ai",           type: "Research Note",       title: "Layer 2 Adoption Curves: What Ethereum Scaling Means for DApp Builders",           summary: "With Optimism, Arbitrum, and Base commanding over $20B in TVL, we analyse how L2 cost structures are reshaping smart contract deployment strategies for production applications.", readTime: "10 min read", date: "June 2026",  author: "Mei Lin Chen",    authorInitials: "MC", authorColor: "#3B82F6", tags: ["Layer 2","Ethereum","TVL","Smart Contracts"] },
+  { category: "AI & Data",         accent: "#10B981", previewUrl: "https://akash.network",   type: "Analysis",            title: "LLMs as Financial Co-Pilots: Accuracy, Hallucination Risk, and Compliance Guardrails", summary: "Financial institutions are deploying LLMs at scale, but hallucination rates in high-stakes contexts demand purpose-built guardrails. We evaluate RAG pipelines, fine-tuning approaches, and compliance frameworks.", readTime: "18 min read", date: "May 2026",   author: "David Nguyen",    authorInitials: "DN", authorColor: "#06B6D4", tags: ["LLMs","RAG","Compliance","FinanceAI"] },
+  { category: "Real Estate",       accent: "#F59E0B", previewUrl: "https://www.blocksquare.io",        type: "Property Intelligence",title: "Fractional Ownership Regulation in Australia: ASIC's Evolving Framework",          summary: "ASIC has signalled a managed investment scheme pathway for tokenised real estate. We map out the compliance requirements, minimum capital thresholds, and disclosure obligations for platform operators.", readTime: "9 min read",  date: "May 2026",   author: "Emma Fischer",    authorInitials: "EF", authorColor: "#EC4899", tags: ["ASIC","Regulation","Tokenisation","MIS"] },
+  { category: "Gaming",            accent: "#EF4444", previewUrl: "https://xter.io",         type: "Industry Report",     title: "Web3 Gaming in 2026: The Play-to-Own Inflection Point",                            summary: "After the play-to-earn crash of 2022, a new cohort of Web3 games with genuine gameplay loops is reaching mainstream audiences. We examine retention mechanics, guild economics, and NFT market liquidity.", readTime: "14 min read", date: "April 2026", author: "Lucas Andrade",   authorInitials: "LA", authorColor: "#EF4444", tags: ["GameFi","NFT","Retention","Guild Economics"] },
+  { category: "Investment",        accent: "#6366F1", previewUrl: "https://www.arrow.markets",  type: "Macro View",          title: "Interest Rates, Digital Assets, and the Correlation Debate",                      summary: "With the RBA cutting rates for the third time in 2026, we revisit the risk-on / risk-off correlation between digital assets and traditional macro indicators — and what it means for portfolio construction.", readTime: "11 min read", date: "April 2026", author: "Alexander Reid",  authorInitials: "AR", authorColor: "#6366F1", tags: ["Macro","RBA","Portfolio","Correlation"] },
+  { category: "Web3 & Blockchain", accent: "#8B5CF6", previewUrl: "https://xion.burnt.com",  type: "Protocol Analysis",   title: "DAO Treasury Management: Lessons from 50 Governance Experiments",                  summary: "We surveyed 50 DAOs managing treasuries above $10M to identify best practices in diversification, spending governance, and off-chain / on-chain co-ordination.", readTime: "16 min read", date: "March 2026", author: "Mei Lin Chen",    authorInitials: "MC", authorColor: "#3B82F6", tags: ["DAO","Governance","Treasury","DeFi"] },
 ];
 
 const stats = [
@@ -70,9 +71,14 @@ export default function Insight() {
           <h2 className="text-2xl font-bold text-white mb-8 font-display">Featured Insight</h2>
           <div className="group relative rounded-3xl border border-white/8 bg-[#111118] overflow-hidden hover:border-[#6366F1]/30 transition-all duration-300 mb-16">
             <div className="grid grid-cols-1 lg:grid-cols-5 gap-0">
-              <div className="lg:col-span-2 relative min-h-[260px] flex items-center justify-center" style={{ background: "linear-gradient(135deg, #6366F115 0%, #111118 100%)" }}>
-                <div className="text-center">
-                  <div className="text-7xl mb-4 animate-float">💹</div>
+              <div className="lg:col-span-2 relative min-h-[260px] overflow-hidden rounded-tl-3xl rounded-bl-3xl">
+                <ServicePreview
+                  siteUrl={featured.previewUrl}
+                  accent={featured.accent}
+                  title={featured.title}
+                  className="h-full rounded-none"
+                />
+                <div className="absolute top-4 left-4">
                   <span className="px-3 py-1 rounded-full text-xs font-semibold bg-[#6366F1]/20 text-[#6366F1]">Market Report</span>
                 </div>
               </div>
@@ -102,10 +108,15 @@ export default function Insight() {
 
           <h2 className="text-2xl font-bold text-white mb-8 font-display">Latest Research</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {insights.slice(1).map(({ category, accent, type, title, summary, readTime, date, author, authorInitials, authorColor, tags, icon }) => (
+            {insights.slice(1).map(({ category, accent, previewUrl, type, title, summary, readTime, date, author, authorInitials, authorColor, tags }) => (
               <div key={title} className="group flex flex-col rounded-2xl border border-white/8 bg-[#111118] overflow-hidden hover:border-white/15 transition-all duration-300 hover:-translate-y-1">
-                <div className="h-36 flex items-center justify-center relative overflow-hidden" style={{ background: `linear-gradient(135deg, ${accent}12 0%, #111118 100%)` }}>
-                  <div className="text-5xl group-hover:scale-110 transition-transform duration-300">{icon}</div>
+                <div className="relative overflow-hidden">
+                  <ServicePreview
+                    siteUrl={previewUrl}
+                    accent={accent}
+                    title={title}
+                    className="rounded-none"
+                  />
                   <div className="absolute top-3 left-3">
                     <span className="px-2.5 py-1 rounded-full text-xs font-semibold" style={{ background: `${accent}20`, color: accent }}>{type}</span>
                   </div>

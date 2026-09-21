@@ -1,13 +1,14 @@
 import { Link } from "react-router-dom";
 import HeroVideo from "../components/HeroVideo";
+import ServicePreview from "../components/ServicePreview";
 
 const services = [
-  { icon: "💹", title: "Investment",        desc: "Strategic capital allocation across global markets with AI-driven insight and risk management.",                 to: "/services#investment" },
-  { icon: "💳", title: "Fintech & Payments",desc: "Next-generation payment infrastructure — fast, secure, and borderless like Stripe for the Web3 era.",            to: "/services#fintech" },
-  { icon: "⛓️", title: "Web3 & Blockchain", desc: "Decentralised applications, smart contracts, and token ecosystems built for real-world adoption.",               to: "/services#web3" },
-  { icon: "🤖", title: "AI Solutions",      desc: "Intelligent automation and predictive analytics that give your business a competitive edge.",                    to: "/services#ai" },
-  { icon: "🏢", title: "Real Estate",       desc: "Tokenised real estate development and digital property investment for the Australian market.",                   to: "/services#real-estate" },
-  { icon: "🎮", title: "Web3 Gaming",       desc: "Play-to-earn and own-to-earn gaming platforms with integrated DeFi mechanics and NFT economies.",                to: "/services#gaming" },
+  { previewUrl: "https://midas.app",       accent: "#6366F1", title: "Investment",        desc: "Strategic capital allocation across global markets with AI-driven insight and risk management.",                 to: "/services#investment" },
+  { previewUrl: "https://stripe.com",      accent: "#3B82F6", title: "Fintech & Payments",desc: "Next-generation payment infrastructure — fast, secure, and borderless like Stripe for the Web3 era.",            to: "/services#fintech" },
+  { previewUrl: "https://0g.ai",           accent: "#8B5CF6", title: "Web3 & Blockchain", desc: "Decentralised applications, smart contracts, and token ecosystems built for real-world adoption.",               to: "/services#web3" },
+  { previewUrl: "https://akash.network",   accent: "#10B981", title: "AI Solutions",      desc: "Intelligent automation and predictive analytics that give your business a competitive edge.",                    to: "/services#ai" },
+  { previewUrl: "https://www.blocksquare.io", accent: "#F59E0B", title: "Real Estate",       desc: "Tokenised real estate development and digital property investment for the Australian market.",                   to: "/services#real-estate" },
+  { previewUrl: "https://xter.io",         accent: "#EF4444", title: "Web3 Gaming",       desc: "Play-to-earn and own-to-earn gaming platforms with integrated DeFi mechanics and NFT economies.",                to: "/services#gaming" },
 ];
 
 const stats = [
@@ -64,11 +65,18 @@ export default function Home() {
             <p className="text-gray-500 max-w-2xl mx-auto">From traditional investment to cutting-edge Web3 gaming, Copia Group operates across six interconnected verticals that shape tomorrow's economy.</p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {services.map(({ icon, title, desc, to }) => (
-              <Link key={title} to={to} className="group p-8 rounded-2xl border border-white/8 bg-[#111118] hover:border-[#6366F1]/40 hover:bg-[#16161F] transition-all duration-300">
-                <div className="text-4xl mb-5">{icon}</div>
-                <h3 className="text-lg font-bold text-white mb-3 group-hover:text-[#6366F1] transition-colors font-display">{title}</h3>
-                <p className="text-gray-500 text-sm leading-relaxed">{desc}</p>
+            {services.map(({ previewUrl, accent, title, desc, to }) => (
+              <Link key={title} to={to} className="group flex flex-col rounded-2xl border border-white/8 bg-[#111118] hover:border-[#6366F1]/40 hover:bg-[#16161F] transition-all duration-300 overflow-hidden">
+                <ServicePreview
+                  siteUrl={previewUrl}
+                  accent={accent}
+                  title={title}
+                  className="rounded-none rounded-t-2xl"
+                />
+                <div className="p-6">
+                  <h3 className="text-lg font-bold text-white mb-3 group-hover:text-[#6366F1] transition-colors font-display">{title}</h3>
+                  <p className="text-gray-500 text-sm leading-relaxed">{desc}</p>
+                </div>
               </Link>
             ))}
           </div>

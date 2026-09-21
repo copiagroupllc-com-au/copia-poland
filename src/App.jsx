@@ -11,6 +11,7 @@ import Insight    from "./pages/Insight";
 import Blog       from "./pages/Blog";
 import BlogPost   from "./pages/BlogPost";
 import Career     from "./pages/Career";
+import CareerDetail from "./pages/CareerDetail";
 import Apply      from "./pages/Apply";
 import Contact    from "./pages/Contact";
 import NotFound   from "./pages/NotFound";
@@ -36,7 +37,8 @@ export default function App() {
           <Route path="/insight"     element={<Insight />} />
           <Route path="/blog"        element={<Blog />} />
           <Route path="/blog/:slug"  element={<BlogPost />} />
-          <Route path="/career"      element={<Career />} />
+          <Route path="/career"        element={<Career />} />
+          <Route path="/career/:slug"  element={<CareerDetail />} />
           <Route path="/apply/:role" element={<Apply />} />
           <Route path="/contact"     element={<Contact />} />
           <Route path="*"            element={<NotFound />} />

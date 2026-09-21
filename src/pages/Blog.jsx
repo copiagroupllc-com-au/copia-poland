@@ -1,13 +1,25 @@
 import { Link } from "react-router-dom";
 import { getAllPosts } from "../lib/blogData";
+import ServicePreview from "../components/ServicePreview";
 
 const categoryColors = {
-  "Real Estate": "#F59E0B", "Web3 Gaming": "#EF4444",
-  "Fintech & Payments": "#8B5CF6", "Investment & AI": "#06B6D4",
-  "Company News": "#6366F1", "Web3 & Finance": "#3B82F6",
+  "Real Estate":        "#F59E0B",
+  "Web3 Gaming":        "#EF4444",
+  "Fintech & Payments": "#8B5CF6",
+  "Investment & AI":    "#06B6D4",
+  "Company News":       "#6366F1",
+  "Web3 & Finance":     "#3B82F6",
 };
 
-const catIcon = (cat) => ({ "Real Estate":"🏢","Web3 Gaming":"🎮","Fintech & Payments":"💳","Investment & AI":"🤖","Company News":"🚀" }[cat] || "⛓️");
+// One representative preview URL per category — 2026 ecosystem partners
+const categoryPreviewUrls = {
+  "Real Estate":        "https://mey.network",
+  "Web3 Gaming":        "https://playable.com",
+  "Fintech & Payments": "https://www.revolut.com",
+  "Investment & AI":    "https://spacemarkets.com",
+  "Company News":       "https://saharaai.com",
+  "Web3 & Finance":     "https://monad.xyz",
+};
 
 function formatDate(d) {
   return new Date(d).toLocaleDateString("en-AU", { day: "numeric", month: "long", year: "numeric" });
@@ -16,6 +28,9 @@ function formatDate(d) {
 export default function Blog() {
   const posts = getAllPosts();
   const [featured, ...rest] = posts;
+
+  const featuredAccent  = categoryColors[featured.category]      || "#6366F1";
+  const featuredPreview = categoryPreviewUrls[featured.category] || "https://midas.app";
 
   return (
     <>
@@ -30,15 +45,21 @@ export default function Blog() {
 
       <section className="py-16 bg-[#0A0A0F]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
           {/* Featured */}
           <Link to={`/blog/${featured.slug}`} className="group block mb-16">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 rounded-3xl border border-white/8 overflow-hidden hover:border-[#6366F1]/30 transition-colors">
-              <div className="h-64 lg:h-auto min-h-[260px] flex items-center justify-center text-7xl" style={{ background: `linear-gradient(135deg, ${categoryColors[featured.category] || "#6366F1"}15 0%, #111118 100%)` }}>
-                {catIcon(featured.category)}
+              <div className="min-h-[260px] overflow-hidden">
+                <ServicePreview
+                  siteUrl={featuredPreview}
+                  accent={featuredAccent}
+                  title={featured.title}
+                  className="h-full rounded-none"
+                />
               </div>
               <div className="p-10 flex flex-col justify-center bg-[#111118]">
                 <div className="flex items-center gap-3 mb-4">
-                  <span className="text-xs px-3 py-1 rounded-full font-semibold" style={{ background: `${categoryColors[featured.category] || "#6366F1"}20`, color: categoryColors[featured.category] || "#6366F1" }}>{featured.category}</span>
+                  <span className="text-xs px-3 py-1 rounded-full font-semibold" style={{ background: `${featuredAccent}20`, color: featuredAccent }}>{featured.category}</span>
                   <span className="text-gray-600 text-xs">Featured</span>
                 </div>
                 <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4 group-hover:text-[#6366F1] transition-colors font-display">{featured.title}</h2>
@@ -54,27 +75,37 @@ export default function Blog() {
             </div>
           </Link>
 
+          {/* Article grid */}
           <h2 className="text-2xl font-bold text-white mb-8 font-display">Latest Articles</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {rest.map((post) => (
-              <Link key={post.slug} to={`/blog/${post.slug}`} className="group flex flex-col rounded-2xl border border-white/8 bg-[#111118] overflow-hidden hover:border-[#6366F1]/30 transition-all duration-300">
-                <div className="h-40 flex items-center justify-center text-5xl" style={{ background: `linear-gradient(135deg, ${categoryColors[post.category] || "#6366F1"}15 0%, #111118 100%)` }}>
-                  {catIcon(post.category)}
-                </div>
-                <div className="p-6 flex flex-col flex-1">
-                  <span className="text-xs px-2.5 py-1 rounded-full font-semibold self-start mb-3" style={{ background: `${categoryColors[post.category] || "#6366F1"}20`, color: categoryColors[post.category] || "#6366F1" }}>{post.category}</span>
-                  <h3 className="text-white font-bold text-base mb-3 group-hover:text-[#6366F1] transition-colors leading-snug font-display flex-1">{post.title}</h3>
-                  <p className="text-gray-500 text-sm leading-relaxed mb-4">{post.excerpt}</p>
-                  <div className="flex items-center gap-3 pt-4 border-t border-white/8">
-                    <div className="w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold text-white flex-shrink-0" style={{ background: post.authorColor }}>{post.authorInitials}</div>
-                    <div className="min-w-0">
-                      <p className="text-white text-xs font-medium truncate">{post.author}</p>
-                      <p className="text-gray-600 text-xs">{formatDate(post.date)} · {post.readTime}</p>
+            {rest.map((post) => {
+              const accent      = categoryColors[post.category]      || "#6366F1";
+              const previewUrl  = categoryPreviewUrls[post.category] || "https://midas.app";
+              return (
+                <Link key={post.slug} to={`/blog/${post.slug}`} className="group flex flex-col rounded-2xl border border-white/8 bg-[#111118] overflow-hidden hover:border-[#6366F1]/30 transition-all duration-300">
+                  <div className="overflow-hidden">
+                    <ServicePreview
+                      siteUrl={previewUrl}
+                      accent={accent}
+                      title={post.title}
+                      className="rounded-none"
+                    />
+                  </div>
+                  <div className="p-6 flex flex-col flex-1">
+                    <span className="text-xs px-2.5 py-1 rounded-full font-semibold self-start mb-3" style={{ background: `${accent}20`, color: accent }}>{post.category}</span>
+                    <h3 className="text-white font-bold text-base mb-3 group-hover:text-[#6366F1] transition-colors leading-snug font-display flex-1">{post.title}</h3>
+                    <p className="text-gray-500 text-sm leading-relaxed mb-4">{post.excerpt}</p>
+                    <div className="flex items-center gap-3 pt-4 border-t border-white/8">
+                      <div className="w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold text-white flex-shrink-0" style={{ background: post.authorColor }}>{post.authorInitials}</div>
+                      <div className="min-w-0">
+                        <p className="text-white text-xs font-medium truncate">{post.author}</p>
+                        <p className="text-gray-600 text-xs">{formatDate(post.date)} · {post.readTime}</p>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </Link>
-            ))}
+                </Link>
+              );
+            })}
           </div>
         </div>
       </section>
