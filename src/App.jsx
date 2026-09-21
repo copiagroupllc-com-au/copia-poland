@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { useEffect } from "react";
+import { LanguageProvider } from "./context/LanguageContext";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
@@ -16,35 +17,44 @@ import Apply      from "./pages/Apply";
 import Contact    from "./pages/Contact";
 import NotFound   from "./pages/NotFound";
 
-// Scroll to top on route change
 function ScrollToTop() {
   const { pathname } = useLocation();
   useEffect(() => { window.scrollTo(0, 0); }, [pathname]);
   return null;
 }
 
-export default function App() {
+function AppShell() {
   return (
-    <BrowserRouter>
+    <>
       <ScrollToTop />
       <Navbar />
       <main className="min-h-screen">
         <Routes>
-          <Route path="/"            element={<Home />} />
-          <Route path="/about"       element={<About />} />
-          <Route path="/services"    element={<Services />} />
-          <Route path="/team"        element={<Team />} />
-          <Route path="/insight"     element={<Insight />} />
-          <Route path="/blog"        element={<Blog />} />
-          <Route path="/blog/:slug"  element={<BlogPost />} />
+          <Route path="/"              element={<Home />} />
+          <Route path="/about"         element={<About />} />
+          <Route path="/services"      element={<Services />} />
+          <Route path="/team"          element={<Team />} />
+          <Route path="/insight"       element={<Insight />} />
+          <Route path="/blog"          element={<Blog />} />
+          <Route path="/blog/:slug"    element={<BlogPost />} />
           <Route path="/career"        element={<Career />} />
           <Route path="/career/:slug"  element={<CareerDetail />} />
-          <Route path="/apply/:role" element={<Apply />} />
-          <Route path="/contact"     element={<Contact />} />
-          <Route path="*"            element={<NotFound />} />
+          <Route path="/apply/:role"   element={<Apply />} />
+          <Route path="/contact"       element={<Contact />} />
+          <Route path="*"              element={<NotFound />} />
         </Routes>
       </main>
       <Footer />
-    </BrowserRouter>
+    </>
+  );
+}
+
+export default function App() {
+  return (
+    <LanguageProvider>
+      <BrowserRouter>
+        <AppShell />
+      </BrowserRouter>
+    </LanguageProvider>
   );
 }

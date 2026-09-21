@@ -1,32 +1,34 @@
 import { Link } from "react-router-dom";
+import { useLanguage } from "../context/LanguageContext";
 
-const values = [
-  { icon: "🔭", title: "Vision First",      desc: "We look beyond the horizon, anticipating market shifts before they happen." },
-  { icon: "🤝", title: "Trust & Integrity", desc: "Every relationship we build is grounded in honesty and accountability." },
-  { icon: "⚡", title: "Speed & Execution", desc: "Ideas are only as good as their execution. We move fast and deliver with precision." },
-  { icon: "🌏", title: "Global Mindset",    desc: "Based in Australia, thinking globally. We bridge Asia-Pacific opportunity with world-class technology." },
-  { icon: "🔗", title: "Decentralisation", desc: "Empowering individuals through open protocols and transparent systems." },
-  { icon: "♻️", title: "Sustainability",    desc: "We build businesses that create lasting value for people and the planet." },
+const valueKeys = [
+  { icon:"🔭", tk:"val1_title", dk:"val1_desc" },
+  { icon:"🤝", tk:"val2_title", dk:"val2_desc" },
+  { icon:"⚡", tk:"val3_title", dk:"val3_desc" },
+  { icon:"🌏", tk:"val4_title", dk:"val4_desc" },
+  { icon:"🔗", tk:"val5_title", dk:"val5_desc" },
+  { icon:"♻️", tk:"val6_title", dk:"val6_desc" },
 ];
 
 const milestones = [
-  { year: "2019", event: "Copia Group LLC founded in the United States." },
-  { year: "2022", event: "Expanded Web3 and blockchain research division." },
-  { year: "2023", event: "Launched AI-powered fintech payment prototype." },
-  { year: "2024", event: "Established Copia Group Australia office." },
-  { year: "2025", event: "Launched tokenised real estate platform (beta)." },
-  { year: "2026", event: "Web3 gaming platform enters public launch." },
+  { year:"2019", mk:"ms_2019" },
+  { year:"2022", mk:"ms_2022" },
+  { year:"2023", mk:"ms_2023" },
+  { year:"2024", mk:"ms_2024" },
+  { year:"2025", mk:"ms_2025" },
+  { year:"2026", mk:"ms_2026" },
 ];
 
 export default function About() {
+  const { t } = useLanguage();
   return (
     <>
       <section className="relative pt-40 pb-24 bg-gradient-to-b from-[#111118] to-[#0A0A0F] overflow-hidden">
-        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#6366F1]/6 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3" />
+        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#DC2626]/6 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-[#6366F1] text-xs font-semibold tracking-widest uppercase mb-4">About Copia Group Australia</p>
-          <h1 className="text-5xl sm:text-6xl font-bold text-white mb-6 max-w-3xl font-display">Where Finance Meets the Future</h1>
-          <p className="text-gray-400 text-xl max-w-2xl leading-relaxed">We are a multi-sector innovation company at the crossroads of investment, fintech, Web3, AI, real estate, and gaming — proudly headquartered in Australia.</p>
+          <p className="text-[#DC2626] text-xs font-semibold tracking-widest uppercase mb-4">{t("about_lbl")}</p>
+          <h1 className="text-5xl sm:text-6xl font-bold text-white mb-6 max-w-3xl font-display">{t("about_h1")}</h1>
+          <p className="text-gray-400 text-xl max-w-2xl leading-relaxed">{t("about_sub")}</p>
         </div>
       </section>
 
@@ -34,23 +36,23 @@ export default function About() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
             <div>
-              <h2 className="text-4xl font-bold text-white mb-6 font-display">Our Story</h2>
+              <h2 className="text-4xl font-bold text-white mb-6 font-display">{t("about_story_h2")}</h2>
               <div className="space-y-4 text-gray-400 leading-relaxed">
-                <p>Copia Group began as a bold idea: that a single company could sit at the intersection of traditional finance and emerging digital economies. Founded under <a href="https://copiagroupllc.com" target="_blank" rel="noopener noreferrer" className="text-[#6366F1] hover:underline">Copia Group LLC</a>, our roots trace back to a team who saw the inevitable convergence of Web3, AI, and real-world asset ownership.</p>
-                <p>Australia's progressive regulatory environment, deep talent pool, and strategic Asia-Pacific position make it the perfect launchpad for our two flagship projects: a tokenised real estate platform and a Web3 gaming ecosystem with integrated fintech and payments.</p>
-                <p>We don't just build products — we build ecosystems that connect people to opportunity in ways that weren't possible before blockchain and AI.</p>
+                <p>{t("about_story_p1")}{" "}<a href="https://copiagroupllc.com" target="_blank" rel="noopener noreferrer" className="text-[#DC2626] hover:underline">Copia Group LLC</a>{t("about_story_p1b")}</p>
+                <p>{t("about_story_p2")}</p>
+                <p>{t("about_story_p3")}</p>
               </div>
             </div>
             <div className="flex flex-col gap-6">
-              <div className="p-8 rounded-2xl border border-[#6366F1]/20 bg-[#111118]">
-                <div className="w-10 h-1 bg-[#6366F1] rounded mb-4" />
-                <h3 className="text-2xl font-bold text-white mb-3 font-display">Our Mission</h3>
-                <p className="text-gray-400 leading-relaxed">To democratise access to high-quality investment, financial infrastructure, and digital economies — making the tools of the future available to everyone.</p>
+              <div className="p-8 rounded-2xl border border-[#DC2626]/20 bg-[#111118]">
+                <div className="w-10 h-1 bg-[#DC2626] rounded mb-4" />
+                <h3 className="text-2xl font-bold text-white mb-3 font-display">{t("about_mission_h3")}</h3>
+                <p className="text-gray-400 leading-relaxed">{t("about_mission_p")}</p>
               </div>
-              <div className="p-8 rounded-2xl border border-violet-600/20 bg-[#111118]">
-                <div className="w-10 h-1 bg-violet-500 rounded mb-4" />
-                <h3 className="text-2xl font-bold text-white mb-3 font-display">Our Vision</h3>
-                <p className="text-gray-400 leading-relaxed">A world where financial systems are open, programmable, and borderless — where owning a share of the digital economy is as natural as owning a home.</p>
+              <div className="p-8 rounded-2xl border border-[#EF4444]/20 bg-[#111118]">
+                <div className="w-10 h-1 bg-[#EF4444] rounded mb-4" />
+                <h3 className="text-2xl font-bold text-white mb-3 font-display">{t("about_vision_h3")}</h3>
+                <p className="text-gray-400 leading-relaxed">{t("about_vision_p")}</p>
               </div>
             </div>
           </div>
@@ -60,15 +62,15 @@ export default function About() {
       <section className="py-24 bg-[#111118]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <p className="text-[#6366F1] text-xs font-semibold tracking-widest uppercase mb-3">What Drives Us</p>
-            <h2 className="text-4xl font-bold text-white font-display">Our Core Values</h2>
+            <p className="text-[#DC2626] text-xs font-semibold tracking-widest uppercase mb-3">{t("about_values_lbl")}</p>
+            <h2 className="text-4xl font-bold text-white font-display">{t("about_values_h2")}</h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {values.map(({ icon, title, desc }) => (
-              <div key={title} className="p-8 rounded-2xl border border-white/8 bg-[#16161F] hover:border-[#6366F1]/30 transition-colors group">
+            {valueKeys.map(({ icon, tk, dk }) => (
+              <div key={tk} className="p-8 rounded-2xl border border-white/8 bg-[#16161F] hover:border-[#DC2626]/30 transition-colors group">
                 <div className="text-3xl mb-4">{icon}</div>
-                <h3 className="text-base font-bold text-white mb-2 group-hover:text-[#6366F1] transition-colors font-display">{title}</h3>
-                <p className="text-gray-500 text-sm leading-relaxed">{desc}</p>
+                <h3 className="text-base font-bold text-white mb-2 group-hover:text-[#DC2626] transition-colors font-display">{t(tk)}</h3>
+                <p className="text-gray-500 text-sm leading-relaxed">{t(dk)}</p>
               </div>
             ))}
           </div>
@@ -78,19 +80,19 @@ export default function About() {
       <section className="py-24 bg-[#0A0A0F]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <p className="text-[#6366F1] text-xs font-semibold tracking-widest uppercase mb-3">Journey</p>
-            <h2 className="text-4xl font-bold text-white font-display">Our Milestones</h2>
+            <p className="text-[#DC2626] text-xs font-semibold tracking-widest uppercase mb-3">{t("about_milestones_lbl")}</p>
+            <h2 className="text-4xl font-bold text-white font-display">{t("about_milestones_h2")}</h2>
           </div>
           <div className="relative">
             <div className="absolute left-8 top-0 bottom-0 w-px bg-white/8" />
             <div className="flex flex-col gap-10">
-              {milestones.map(({ year, event }, i) => (
+              {milestones.map(({ year, mk }, i) => (
                 <div key={i} className="flex gap-6 items-start">
                   <div className="relative flex-shrink-0 w-16 text-right">
-                    <span className="text-[#6366F1] font-bold text-sm font-display">{year}</span>
-                    <div className="absolute right-[-25px] top-1 w-3 h-3 rounded-full bg-[#6366F1] border-2 border-[#0A0A0F]" />
+                    <span className="text-[#DC2626] font-bold text-sm font-display">{year}</span>
+                    <div className="absolute right-[-25px] top-1 w-3 h-3 rounded-full bg-[#DC2626] border-2 border-[#0A0A0F]" />
                   </div>
-                  <div className="pb-2 pl-8"><p className="text-gray-400 text-sm leading-relaxed">{event}</p></div>
+                  <div className="pb-2 pl-8"><p className="text-gray-400 text-sm leading-relaxed">{t(mk)}</p></div>
                 </div>
               ))}
             </div>
@@ -100,9 +102,11 @@ export default function About() {
 
       <section className="py-20 bg-[#111118] text-center">
         <div className="max-w-2xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-white mb-4 font-display">Meet the People Behind Copia Group</h2>
-          <p className="text-gray-500 mb-8">Our team is our greatest asset. Get to know the minds building the future of finance and Web3.</p>
-          <Link to="/team" className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-[#6366F1] text-white font-bold hover:bg-indigo-400 transition-colors">Meet the Team</Link>
+          <h2 className="text-3xl font-bold text-white mb-4 font-display">{t("about_cta_h2")}</h2>
+          <p className="text-gray-500 mb-8">{t("about_cta_sub")}</p>
+          <Link to="/team" className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-[#DC2626] text-white font-bold hover:bg-[#EF4444] transition-colors">
+            {t("about_cta_btn")}
+          </Link>
         </div>
       </section>
     </>
