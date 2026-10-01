@@ -7,14 +7,14 @@ const jakarta = Plus_Jakarta_Sans({ subsets: ["latin"], variable: "--font-jakart
 const syne    = Syne({ subsets: ["latin"], variable: "--font-syne", display: "swap" });
 
 export const metadata = {
-  metadataBase: new URL("https://copiagroupllc.com.au"),
+  metadataBase: new URL("https://copiagroupllc.com.pl"),
   title: {
-    default:  "Copia Group | Investment, Web3 & Real Estate — Australia",
-    template: "%s | Copia Group Australia",
+    default:  "Copia Group | Investment, Web3 & Real Estate — Poland",
+    template: "%s | Copia Group Poland",
   },
   description:
     "Copia Group is a Poland-based innovation hub driving investment and innovation across fintech, payments, Web3, AI, real estate, and gaming — building the next generation of digital finance and technology.",
-  keywords: ["Copia Group","investment","fintech","payments","Web3","AI","real estate","gaming","Australia","blockchain"],
+  keywords: ["Copia Group","investment","fintech","payments","Web3","AI","real estate","gaming","Poland","blockchain"],
   authors: [{ name: "Copia Group LLC", url: "https://copiagroupllc.com" }],
   icons: {
     icon:     "/favicon.png",
@@ -23,16 +23,16 @@ export const metadata = {
   },
   openGraph: {
     type:        "website",
-    locale:      "en_AU",
-    url:         "https://copiagroupllc.com.au",
-    siteName:    "Copia Group Australia",
-    title:       "Copia Group | Investment, Web3 & Real Estate — Australia",
+    locale:      "pl_PL",
+    url:         "https://copiagroupllc.com.pl",
+    siteName:    "Copia Group Poland",
+    title:       "Copia Group | Investment, Web3 & Real Estate — Poland",
     description: "Copia Group is a Poland-based innovation hub driving investment and innovation across fintech, payments, Web3, AI, real estate, and gaming — building the next generation of digital finance and technology.",
     images: [{ url: "/copia-logo.png", width: 512, height: 512, alt: "Copia Group" }],
   },
   twitter: {
     card:        "summary_large_image",
-    title:       "Copia Group | Investment, Web3 & Real Estate — Australia",
+    title:       "Copia Group | Investment, Web3 & Real Estate — Poland",
     description: "Copia Group is a Poland-based innovation hub driving investment and innovation across fintech, payments, Web3, AI, real estate, and gaming — building the next generation of digital finance and technology.",
     images:      ["/copia-logo.png"],
   },
@@ -41,7 +41,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en-AU" className={`${jakarta.variable} ${syne.variable}`}>
+    <html lang="pl" className={`${jakarta.variable} ${syne.variable}`}>
       <body className="font-sans">
         <Navbar />
         <main className="min-h-screen">{children}</main>

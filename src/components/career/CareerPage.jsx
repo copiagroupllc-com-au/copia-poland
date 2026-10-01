@@ -1,6 +1,6 @@
 import { useState, useMemo } from "react";
 import { useJobs } from "../../hooks/useJobs";
-import { PERKS, DEPARTMENTS, DEPT_COLORS } from "../../data/careerConstants";
+import { DEPARTMENTS, DEPT_COLORS } from "../../data/careerConstants";
 import { useLanguage } from "../../context/LanguageContext";
 
 const JOBS_PER_PAGE = 6;
@@ -20,15 +20,6 @@ const TEAM = [
   { name:"Erik Green",           role:"Business Consultant",          photo:"/team/erik-green.png",           accent:"#B91C1C" },
   { name:"Ron Cussons",          role:"Financial Advisor",            photo:"/team/ron-cussons.png",          accent:"#DC2626" },
   { name:"Peter AL Schrader",    role:"Private Investor",             photo:"/team/peter-schrader.png",       accent:"#EF4444" },
-];
-
-const VALUE_KEYS = [
-  { icon:"🔭", tk:"val1_title", dk:"val1_desc" },
-  { icon:"🤝", tk:"val2_title", dk:"val2_desc" },
-  { icon:"⚡", tk:"val3_title", dk:"val3_desc" },
-  { icon:"🌏", tk:"val4_title", dk:"val4_desc" },
-  { icon:"🔗", tk:"val5_title", dk:"val5_desc" },
-  { icon:"♻️", tk:"val6_title", dk:"val6_desc" },
 ];
 
 function FilterPill({ label, active, onClick }) {
@@ -115,23 +106,6 @@ export default function CareerPage({ onApply }) {
           ))}
         </div>
       </div>
-
-      {/* Perks */}
-      <section className="py-24 bg-[#0A0A0F]">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-[#DC2626] text-xs font-semibold tracking-widest uppercase mb-4">{t("career_offer_lbl")}</p>
-          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-12 font-display">{t("career_offer_h2")}</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {PERKS.map(p => (
-              <div key={p.title} className="p-6 rounded-2xl border border-white/8 bg-[#111118] hover:border-[#DC2626]/30 transition-all duration-300">
-                <div className="text-3xl mb-4">{p.icon}</div>
-                <div className="text-white font-bold text-sm mb-2 font-display">{p.title}</div>
-                <div className="text-gray-500 text-sm leading-relaxed">{p.desc}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Open Roles */}
       <section id="open-roles" className="py-24 bg-[#111118]">
@@ -255,23 +229,6 @@ export default function CareerPage({ onApply }) {
               )}
             </>
           )}
-        </div>
-      </section>
-
-      {/* Values */}
-      <section className="py-24 bg-[#0A0A0F]">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-[#DC2626] text-xs font-semibold tracking-widest uppercase mb-4">{t("career_values_lbl")}</p>
-          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-12 font-display">{t("career_values_h2")}</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {VALUE_KEYS.map(({ icon, tk, dk }) => (
-              <div key={tk} className="p-6 rounded-2xl border border-white/8 bg-[#111118] hover:border-[#DC2626]/30 transition-all duration-300 group">
-                <div className="text-3xl mb-4">{icon}</div>
-                <div className="text-white font-bold text-sm mb-2 group-hover:text-[#DC2626] transition-colors font-display">{t(tk)}</div>
-                <div className="text-gray-500 text-sm leading-relaxed">{t(dk)}</div>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 

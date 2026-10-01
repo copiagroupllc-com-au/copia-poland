@@ -4,7 +4,7 @@ import Link from "next/link";
 export const metadata = {
   title: "Our Team",
   description:
-    "Meet the world-class engineers, strategists, and visionaries driving Copia Group Australia forward.",
+    "Meet the world-class engineers, strategists, and visionaries driving Copia Group Poland forward.",
 };
 
 const team = [

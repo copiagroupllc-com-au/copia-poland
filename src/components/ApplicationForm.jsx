@@ -322,7 +322,7 @@ export default function ApplicationForm({ role, accent }) {
         `Available From: ${final.startDate}`, `Referral Source: ${final.referral}`,
         `Work Authorization: ${final.workAuth}`, `Video Intro: ${final.video?.name || "not attached"}`,
       ].join("\n"));
-      window.location.href = `mailto:contact@copiagroupllc.com.au?subject=${subject}&body=${body}`;
+      window.location.href = `mailto:contact@copiagroupllc.com.pl?subject=${subject}&body=${body}`;
       setSubmitted(true);
     } catch { setSubmitted(true); }
     finally { setSubmitting(false); }
@@ -370,7 +370,7 @@ export default function ApplicationForm({ role, accent }) {
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
               <div><label className={labelCls}>Phone Number<Req /></label><input className={inputCls} type="tel" placeholder="+61 400 000 000" value={info.phone} onChange={(e) => setInfo((p) => ({ ...p, phone: e.target.value }))} />{err("phone")}</div>
-              <div><label className={labelCls}>Location<Req /></label><input className={inputCls} placeholder="Sydney, NSW, Australia" value={info.location} onChange={(e) => setInfo((p) => ({ ...p, location: e.target.value }))} />{err("location")}</div>
+              <div><label className={labelCls}>Location<Req /></label><input className={inputCls} placeholder="Warsaw, Poland" value={info.location} onChange={(e) => setInfo((p) => ({ ...p, location: e.target.value }))} />{err("location")}</div>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
               <div><label className={labelCls}>LinkedIn URL</label><input className={inputCls} type="url" placeholder="https://linkedin.com/in/your-profile" value={info.linkedin} onChange={(e) => setInfo((p) => ({ ...p, linkedin: e.target.value }))} /></div>
@@ -428,7 +428,7 @@ export default function ApplicationForm({ role, accent }) {
                 <label className={labelCls}>Work Authorisation<Req /></label>
                 <select className={inputCls} value={final.workAuth} onChange={(e) => setFinal((p) => ({ ...p, workAuth: e.target.value }))}>
                   <option value="" disabled className="bg-[#16161F]">Select status</option>
-                  {["Australian Citizen","Australian Permanent Resident","New Zealand Citizen","Valid Work Visa (sponsored)","Require Visa Sponsorship"].map((o) => <option key={o} value={o} className="bg-[#16161F]">{o}</option>)}
+                  {["Polish Citizen","EU Citizen","Valid Work Permit (Poland)","Require Work Permit Sponsorship","Other"].map((o) => <option key={o} value={o} className="bg-[#16161F]">{o}</option>)}
                 </select>
                 {err("workAuth")}
               </div>

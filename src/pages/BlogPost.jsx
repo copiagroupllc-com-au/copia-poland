@@ -3,12 +3,12 @@ import { getPostBySlug, getAllPosts } from "../lib/blogData";
 import ServicePreview from "../components/ServicePreview";
 
 const categoryColors = {
-  "Real Estate":        "#F59E0B",
+  "Real Estate":        "#DC2626",
   "Web3 Gaming":        "#EF4444",
-  "Fintech & Payments": "#8B5CF6",
-  "Investment & AI":    "#06B6D4",
-  "Company News":       "#6366F1",
-  "Web3 & Finance":     "#3B82F6",
+  "Fintech & Payments": "#B91C1C",
+  "Investment & AI":    "#DC2626",
+  "Company News":       "#EF4444",
+  "Web3 & Finance":     "#B91C1C",
 };
 
 const categoryPreviewUrls = {
@@ -21,7 +21,7 @@ const categoryPreviewUrls = {
 };
 
 function formatDate(d) {
-  return new Date(d).toLocaleDateString("en-AU", { day: "numeric", month: "long", year: "numeric" });
+  return new Date(d).toLocaleDateString("pl-PL", { day: "numeric", month: "long", year: "numeric" });
 }
 
 function InlineContent({ text }) {
@@ -34,8 +34,8 @@ function InlineContent({ text }) {
         if (m) {
           const [, label, href] = m;
           const ext = href.startsWith("http");
-          if (ext) return <a key={i} href={href} target="_blank" rel="noopener noreferrer" className="text-[#6366F1] hover:underline">{label}</a>;
-          return <Link key={i} to={href} className="text-[#6366F1] hover:underline">{label}</Link>;
+          if (ext) return <a key={i} href={href} target="_blank" rel="noopener noreferrer" className="text-[#DC2626] hover:underline">{label}</a>;
+          return <Link key={i} to={href} className="text-[#DC2626] hover:underline">{label}</Link>;
         }
         return <span key={i}>{part}</span>;
       })}
@@ -62,7 +62,7 @@ export default function BlogPost() {
   const post = getPostBySlug(slug);
   if (!post) return <Navigate to="/blog" replace />;
 
-  const accent = categoryColors[post.category] || "#6366F1";
+  const accent = categoryColors[post.category] || "#DC2626";
   const related = getAllPosts().filter(p => p.slug !== post.slug).slice(0, 3);
 
   return (
@@ -102,10 +102,10 @@ export default function BlogPost() {
                   </div>
                 </div>
               </div>
-              <div className="p-6 rounded-2xl border border-[#6366F1]/20 bg-[#6366F1]/5">
-                <p className="text-[#6366F1] font-semibold text-sm mb-2">Interested in this topic?</p>
+              <div className="p-6 rounded-2xl border border-[#DC2626]/20 bg-[#DC2626]/5">
+                <p className="text-[#DC2626] font-semibold text-sm mb-2">Interested in this topic?</p>
                 <p className="text-gray-500 text-xs mb-4">Talk to our team about how Copia Group's services can help you.</p>
-                <Link to="/contact" className="block text-center px-5 py-2.5 rounded-full bg-[#6366F1] text-white text-sm font-bold hover:bg-indigo-400 transition-colors">Get in Touch</Link>
+                <Link to="/contact" className="block text-center px-5 py-2.5 rounded-full bg-[#DC2626] text-white text-sm font-bold hover:bg-[#EF4444] transition-colors">Get in Touch</Link>
               </div>
             </aside>
           </div>
@@ -118,18 +118,18 @@ export default function BlogPost() {
             <h2 className="text-2xl font-bold text-white mb-8 font-display">More from the Journal</h2>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
               {related.map((p) => (
-                <Link key={p.slug} to={`/blog/${p.slug}`} className="group flex flex-col rounded-2xl border border-white/8 bg-[#16161F] overflow-hidden hover:border-[#6366F1]/30 transition-colors">
+                <Link key={p.slug} to={`/blog/${p.slug}`} className="group flex flex-col rounded-2xl border border-white/8 bg-[#16161F] overflow-hidden hover:border-[#DC2626]/30 transition-colors">
                   <div className="overflow-hidden">
                     <ServicePreview
                       siteUrl={categoryPreviewUrls[p.category] || "https://midas.app"}
-                      accent={categoryColors[p.category] || "#6366F1"}
+                      accent={categoryColors[p.category] || "#DC2626"}
                       title={p.title}
                       className="rounded-none"
                     />
                   </div>
                   <div className="p-5">
-                    <span className="text-xs px-2 py-0.5 rounded-full font-semibold" style={{ background: `${categoryColors[p.category] || "#6366F1"}20`, color: categoryColors[p.category] || "#6366F1" }}>{p.category}</span>
-                    <h3 className="text-white font-bold text-sm mt-3 mb-1 group-hover:text-[#6366F1] transition-colors leading-snug font-display">{p.title}</h3>
+                    <span className="text-xs px-2 py-0.5 rounded-full font-semibold" style={{ background: `${categoryColors[p.category] || "#DC2626"}20`, color: categoryColors[p.category] || "#DC2626" }}>{p.category}</span>
+                    <h3 className="text-white font-bold text-sm mt-3 mb-1 group-hover:text-[#DC2626] transition-colors leading-snug font-display">{p.title}</h3>
                     <p className="text-gray-600 text-xs">{formatDate(p.date)}</p>
                   </div>
                 </Link>
